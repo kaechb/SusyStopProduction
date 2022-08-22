@@ -83,25 +83,24 @@ generator = cms.EDFilter(\"Pythia8HadronizerFilter\",
     SLHATableForPythia8 = cms.string(\"\"\"
         $SLHAFRAG
     \"\"\"),
-)" > Configuration/GenProduction/python/genfragment.py
+)" > Configuration/GenProduction/python/genfragment_Q${QCUT}_NJet{$NJETMAX}.py
 
 # eval "scramv1 build clean"
 # eval "scramv1 build"
 
 echo "Fragment:"
-cat Configuration/GenProduction/python/genfragment.py
-
+cat Configuration/GenProduction/python/genfragment_Q${QCUT}_NJet{$NJETMAX}.py
 #             SHOWER
 #--------------------------------
 GENFILE='GEN_'${PROCESS}'_'${QCUT}'.root'
 
 echo "--------------> Let's begin... SHOWER"
-echo "cmsDriver.py Configuration/GenProduction/python/genfragment.py --mc --eventcontent RAWSIM --datatier GEN-SIM --conditions auto:run2_mc --step GEN --filein ${INFILES} --fileout file:${GENFILE} -n -1"
+echo "cmsDriver.py Configuration/GenProduction/python/genfragment.py --mc --eventcontent RAWSIM --datatier GEN-SIM --conditions auto:run2_mc --step GEN --filein ${INFILES} --fileout file:${GENFILE} -n -1 --no_exec"
 
 cmsDriver.py \
   Configuration/GenProduction/python/genfragment.py \
   --mc \
-  --no-run \
+  --no_exec \
   --eventcontent RAWSIM \
   --datatier GEN-SIM \
   --conditions auto:run2_mc \
@@ -111,10 +110,6 @@ cmsDriver.py \
   -n -1
 
 echo "Hadronization finished. Copy output..."
-#lcg-cp -v -b -D srmv2 --vo cms file:`pwd`/${GENFILE} srm://bsrm-3.t2.ucsd.edu:8443/srm/v2/server?SFN=${OUTDIR}/${GENFILE}
-# gfal-copy -p -f -t 4200 ${GENFILE} gsiftp://gftp.t2.ucsd.edu/${OUTDIR}/${GENFILE} --checksum ADLER32
-cp $GENFILE $WORKDIR #for copying file back to submission directory
-
 echo "ls in cmssw src dir"
 ls
 
