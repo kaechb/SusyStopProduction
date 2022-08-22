@@ -11,7 +11,7 @@ First run `setup/setup.sh`
 
 ## Gridpack:
 
-`Susy1Lepton2bWProduction/scripts/writeallcards_SMS-StopStop.sh`
+`SusyStopProduction/scripts/writeallcards_SMS-StopStop.sh`
 
 *  this creates the cards for the gridpack generation, here you need to change the masses of interest (in our case a script creates many different sets of cards, note that for each mass constellation we need a grid pack)
 * 3 main ingredients are created with the script:
