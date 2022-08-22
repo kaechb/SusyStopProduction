@@ -101,6 +101,7 @@ echo "cmsDriver.py Configuration/GenProduction/python/genfragment.py --mc --even
 cmsDriver.py \
   Configuration/GenProduction/python/genfragment.py \
   --mc \
+  --no-run \
   --eventcontent RAWSIM \
   --datatier GEN-SIM \
   --conditions auto:run2_mc \
