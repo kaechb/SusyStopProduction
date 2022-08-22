@@ -1,6 +1,11 @@
 # SusyStopProduction
 # SusyStopEvents Generation:
-First run `setup/setup.sh`
+First run
+```
+cmsrel CMSSW_12_1_0
+cd CMSSW_12_1_0/src
+```
+Then run the scripts in scripts/setup.sh, this clones the repo
  ## Outline:
  1. Generate MadGraph calculations of Feynmann Matrix elements -> Gridpack
  2. Generate MadEvents with gridpack -> .lhe files
