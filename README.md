@@ -27,7 +27,7 @@ Then run the scripts in scripts/setup.sh, this clones the repo
 
 	(4.) it also generate a .slha which is needed for Pythia showering later
 * Now move all the .dat cards to `genproductions/bin/MadGraph5_aMCatNLO/cards`, 
-* `genproductions/bin/MadGraph5_aMCatNLO/gridpack_generation.sh`
+* `/gridpack_generation.sh SMS-T2X1tbWX0-950-525-100 cards/SMS-T2X1tbWX0-950-525-100\n\n`
  this creates a tar.xzf from which madevents can be generated, see below
 ## MadEvents 
  
